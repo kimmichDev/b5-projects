@@ -3,8 +3,11 @@ let waypoint = new Waypoint({
     handler: function(direction) {
        if(direction === "down"){
            document.querySelector(".scroll-to-top").style.display = "block"
+           document.querySelector(".scroll-to-top").classList.add("animate__backInUp")
        }else{
            document.querySelector(".scroll-to-top").style.display = "none"
+           document.querySelector(".scroll-to-top").classList.remove("animate__backInUp")
+
        }
     },
     offset: '75%'
@@ -24,3 +27,12 @@ let waypoint2 = new Waypoint({
     },
     offset: '75%'
 })
+
+ScrollReveal({
+    origin: 'top',
+    distance: '30px',
+    duration: 2000,
+    reset: true,
+}).reveal('.content',{
+    interval: 200
+});
